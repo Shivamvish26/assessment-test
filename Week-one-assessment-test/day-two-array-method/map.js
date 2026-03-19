@@ -11,6 +11,7 @@ const products = [
 // return `Name: ${name}, Price: ${price}`
 // })
 
+// taking out the name with the help of map function
 const result = products.map(({ name }) => name);
 
 console.log(result);
