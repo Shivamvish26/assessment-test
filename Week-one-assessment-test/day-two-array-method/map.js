@@ -14,4 +14,9 @@ const products = [
 // taking out the name with the help of map function
 const result = products.map(({ name }) => name);
 
-console.log(result);
+//
+
+const number = [1, 2, 3, 4, 5];
+
+const multiply = number.map((num) => num * 2);
+console.log(multiply);

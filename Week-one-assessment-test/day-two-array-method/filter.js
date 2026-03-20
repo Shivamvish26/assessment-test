@@ -7,8 +7,15 @@ const products = [
   { id: 4, name: "Shampoo", price: 150, category: "Daily" },
 ];
 
-const getproductcategory=()=>{
-    return products.filter(({category})=>category)
-}
+// filtering the price
+const result = products.filter((products)=>products.price < 100)
+console.log(result)
 
-console.log(getproductcategory())
+// flitering the cateroty
+// const groceryitems = products.filter((products)=>products.category === "Grocery")
+// console.log(groceryitems)
+
+
+// filtering the name
+// const dataname = products.filter((products)=>products.name === "Rice")
+// console.log(dataname)
