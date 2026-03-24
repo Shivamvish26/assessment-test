@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f2f2f2;
+    }
+ 
+    h1 { text-align: center; }
+ 
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+    }
+ 
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #ddd;
+      border: none;
+    }
+ 
+    .tabs button.active {
+      background: #4CAF50;
+      color: white;
+    }
+ 
+    .form-box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+ 
+    .form-box input,
+    .form-box select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+ 
+    .form-box button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+ 
+    .form-box button:hover { background: #45a049; }
+ 
+    #message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+    }
+ 
+    .success { background: #d4edda; color: #155724; }
+    .error   { background: #f8d7da; color: #721c24; }
+ 
+    #dashboard {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+ 
+    #dashboard h2 { margin-top: 0; }
+ 
+    #userList {
+      list-style: none;
+      padding: 0;
+    }
+ 
+    #userList li {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+ 
+    #logoutBtn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+ 
+    #logoutBtn:hover { background: #c0392b; }
+  </style>
+<body>
+ 
+  <h1>User & Admin System</h1>
+ 
+  <!-- Tabs -->
+  <div class="tabs" id="tabs">
+    <button class="active" onclick="showTab('signup')">Sign Up</button>
+    <button onclick="showTab('signin')">Sign In</button>
+  </div>
+ 
+  <!-- Sign Up Form -->
+  <div class="form-box" id="signupForm">
+    <h3>Create Account</h3>
+    <input type="text"     id="su_username" placeholder="Username" />
+    <input type="password" id="su_password" placeholder="Password" />
+    <select id="su_role">
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+    <button onclick="signUp()">Sign Up</button>
+  </div>
+ 
+  <!-- Sign In Form -->
+  <div class="form-box" id="signinForm" style="display:none;">
+    <h3>Sign In</h3>
+    <input type="text"     id="si_username" placeholder="Username" />
+    <input type="password" id="si_password" placeholder="Password" />
+    <button onclick="signIn()">Sign In</button>
+  </div>
+ 
+  <!-- Message -->
+  <div id="message"></div>
+ 
+  <!-- Dashboard -->
+  <div id="dashboard">
+    <h2 id="dashTitle"></h2>
+    <p id="dashRole"></p>
+ 
+    <!-- Admin Only -->
+    <div id="adminPanel" style="display:none;">
+      <h3>All Registered Users</h3>
+      <ul id="userList"></ul>
+    </div>
+ 
+    <button id="logoutBtn" onclick="logOut()">Logout</button>
+  </div>
+</body>
+<script src="../day-four-login/script.js"></script>
+</html>
