@@ -1,38 +1,43 @@
 //  User Constructor
-function User(username, password) {
-  this.username = username;
+function User(username, password) { //user object ko create kiye hai
+  this.username = username; //this-> is an current object/ user name ko store kiye hai
   this.password = password;
-  this.role = "user";
-  this.isLoggedIn = false;
+  this.role = "user"; // default role set hai user
+  this.isLoggedIn = false; //login status initially false hai
 }
 
-User.prototype.login = function (password) {
-  if (this.password === password) {
-    this.isLoggedIn = true;
+// users methods
+User.prototype.login = function (password) { //login method ready kiye hai, prototype use kar kai data save kiye hai
+  if (this.password === password) { //entered password check kiye hai
+    this.isLoggedIn = true; //agar password sahi hai to usko login kar do nahi to error show kar do
     return true;
   }
   return false;
 };
 
-User.prototype.logout = function () {
+User.prototype.logout = function () { //logout method
   this.isLoggedIn = false;
 };
 
 //Admin Constructor — inherits from User
 function Admin(username, password) {
-  User.call(this, username, password); // inherit User properties
+  User.call(this, username, password); // inherit User properties, yaha pai user constructor call ho raha hai
+  // admin mai username, password, islogged in copy ho raha hai
   this.role = "admin";
 }
 
+// prototype inheritance
 Admin.prototype = Object.create(User.prototype);
-Admin.prototype.constructor = Admin;
+// admin inherits user methods
+Admin.prototype.constructor = Admin; //reference ko fix kiye hai
 
 Admin.prototype.getUsers = function (allUsers) {//admin can view all users
   return allUsers;
 };
 
-var registeredUsers = [];
-var currentUser = null;
+// global variables
+var registeredUsers = []; //array to store all users json data mai
+var currentUser = null; //ya pe currently logged-in user store karaga
 
 function showTab(tab) {
   var btns = document.querySelectorAll(".tabs button");
