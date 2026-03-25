@@ -1,7 +1,7 @@
 // let data = 1;
 // console.log(data);
 
-// data = 2;
+// data = 2;  
 // setTimeout(() => { //function ko delay ke liye schedulr karta hai immediately execute nahi karta hai
 //   console.log("timer data", data);
 // }, 2000); //ye 2 sec mai output show hoga
