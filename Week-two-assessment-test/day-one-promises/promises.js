@@ -57,7 +57,7 @@ function fetchUsers() {
 
     setTimeout(() => {
       fetch("https://jsonplaceholder.typicode.com/users")
-        .then((res) => res.json()) // convert to JSON
+        .then((res) => res.json()) // convert to JSON //agar data success(resolve) ho gaya to .then ka use karta hai
         .then((data) => resolve(data)) // success
         .catch((err) => reject(err)); // error
     }, 2000); // 2 sec delay
