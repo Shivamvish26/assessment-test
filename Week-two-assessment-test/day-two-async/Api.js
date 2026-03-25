@@ -1,14 +1,14 @@
-function getUsers() {
-  fetch("https://jsonplaceholder.typicode.com/users")
-    .then(function (response) {
-      return response.json(); // convert to JS object
-    })
-    .then(function (data) {
-      displayUsers(data);
-    })
-    .catch(function (error) {
-      console.log("Error:", error);
-    });
+async function getUsers() {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+    const data = await response.json(); // JSON → object
+
+    displayUsers(data);
+
+  } catch (error) {
+    console.log("Error:", error);
+  }
 }
 
 function displayUsers(users) {
