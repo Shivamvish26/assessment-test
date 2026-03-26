@@ -1,7 +1,7 @@
 // let data = 1;
 // console.log(data);
 
-// data = 2;
+// data = 2;  
 // setTimeout(() => { //function ko delay ke liye schedulr karta hai immediately execute nahi karta hai
 //   console.log("timer data", data);
 // }, 2000); //ye 2 sec mai output show hoga
@@ -57,7 +57,7 @@ function fetchUsers() {
 
     setTimeout(() => {
       fetch("https://jsonplaceholder.typicode.com/users")
-        .then((res) => res.json()) // convert to JSON
+        .then((res) => res.json()) // convert to JSON //agar data success(resolve) ho gaya to .then ka use karta hai
         .then((data) => resolve(data)) // success
         .catch((err) => reject(err)); // error
     }, 2000); // 2 sec delay
